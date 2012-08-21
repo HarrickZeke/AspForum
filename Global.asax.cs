@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using AspForum.Models;
+using AspForum.DAL;
 
 namespace AspForum
 {
@@ -35,6 +38,9 @@ namespace AspForum
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            //*** Start with dome datas ***//
+            Database.SetInitializer<ForumContext>(new ForumInitializer());
         }
     }
 }
